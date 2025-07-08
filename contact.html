@@ -18,33 +18,58 @@
   <div class="container">
     <h1>Contact Me</h1>
     <p>Feel free to get in touch via the form below (HTML only for now).</p>
-    <form>
-      <input type="text" placeholder="Your Name" style="padding: 10px; width: 80%; margin: 10px 0;" /><br />
-      <input type="email" placeholder="Your Email" style="padding: 10px; width: 80%; margin: 10px 0;" /><br />
-      <textarea placeholder="Your Message" rows="5" style="padding: 10px; width: 80%; margin: 10px 0;"></textarea><br />
-      <button type="submit" style="padding: 10px 20px; margin-top: 10px;">Send</button>
-    </form>
+    <form id="contact-form">
+  <input type="text" id="name" placeholder="Your Name" required
+         style="padding: 10px; width: 80%; margin: 10px 0;" /><br />
+  <input type="email" id="email" placeholder="Your Email" required
+         style="padding: 10px; width: 80%; margin: 10px 0;" /><br />
+  <textarea id="message" placeholder="Your Message" rows="5" required
+            style="padding: 10px; width: 80%; margin: 10px 0;"></textarea><br />
+  <button type="submit" style="padding: 10px 20px; margin-top: 10px;">Send</button>
+</form>
+
+<!-- Placeholder for thank-you message -->
+<p id="thank-you" style="display: none; margin-top: 20px; font-weight: bold;"></p>
+
   </div>
 
   <footer>
     <p>&copy; 2025 Emmanuel Nartey. All rights reserved.</p>
   </footer>
   <script>
-      // Apply saved theme on page load
-      window.onload = function () {
-        const savedTheme = localStorage.getItem('theme');
-        if (savedTheme === 'dark') {
-          document.body.classList.add('dark-mode');
-        }
-      };
+  // Apply saved theme on page load
+  window.onload = function () {
+    const savedTheme = localStorage.getItem('theme');
+    if (savedTheme === 'dark') {
+      document.body.classList.add('dark-mode');
+    }
+  };
 
-      // Toggle and save theme
-      function toggleDarkMode() {
-        document.body.classList.toggle('dark-mode');
-        const isDark = document.body.classList.contains('dark-mode');
-        localStorage.setItem('theme', isDark ? 'dark' : 'light');
-      }
-  </script>
+  // Toggle and save theme
+  function toggleDarkMode() {
+    document.body.classList.toggle('dark-mode');
+    const isDark = document.body.classList.contains('dark-mode');
+    localStorage.setItem('theme', isDark ? 'dark' : 'light');
+  }
+
+  // Contact form interactivity
+  document.addEventListener('DOMContentLoaded', function () {
+    const form = document.getElementById('contact-form');
+    const thankYouMsg = document.getElementById('thank-you');
+
+    form.addEventListener('submit', function (e) {
+      e.preventDefault(); // Prevent page reload
+
+      const name = document.getElementById('name').value;
+      thankYouMsg.textContent = `Thank you, ${name}! Your message has been received.`;
+      thankYouMsg.style.display = 'block';
+
+      // Optionally, clear form
+      form.reset();
+    });
+  });
+</script>
+
 
 </body>
 </html>
