@@ -41,3 +41,40 @@ footer {
   max-width: 800px;
   margin: 0 auto;
 }
+/* Light theme (default) */
+body {
+  background: linear-gradient(to right, #4facfe, #00f2fe);
+  color: #fff;
+  transition: background 0.3s, color 0.3s;
+}
+
+/* Dark theme override */
+body.dark-mode {
+  background: #121212;
+  color: #e0e0e0;
+}
+
+body.dark-mode nav {
+  background: rgba(255, 255, 255, 0.05);
+}
+
+body.dark-mode footer {
+  color: #aaaaaa;
+}
+
+.dark-toggle {
+  position: absolute;
+  top: 10px;
+  right: 20px;
+  background: #ffffff;
+  color: #4facfe;
+  border: none;
+  padding: 6px 12px;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 0.9rem;
+}
+
+.dark-toggle:hover {
+  background-color: #e0e0e0;
+}

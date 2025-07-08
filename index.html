@@ -12,6 +12,8 @@
     <a href="about.html">About</a>
     <a href="contact.html">Contact</a>
   </nav>
+  <button class="dark-toggle" onclick="toggleDarkMode()">Toggle Dark Mode</button>
+
 
   <div class="container">
     <h1>Welcome to My Web App</h1>
@@ -27,6 +29,12 @@
     const msg = `You're visiting this site on ${now.toDateString()} at ${now.toLocaleTimeString()}.`;
     document.getElementById('welcome-msg').textContent = msg;
   </script>
+  <script>
+    function toggleDarkMode() {
+      document.body.classList.toggle('dark-mode');
+  }
+</script>
+
 
 </body>
 </html>
